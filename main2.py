@@ -51,7 +51,7 @@ for classes in colonnes:
 for x in contenu:
     informationsVal.append(x.string)
 
-
+print(informations)
 
 # Retrait des éléments non pertinent pour le projet : "Product Type", "Tax" et "Number of reviews"
 # Retrait en deux temps : 1-> Valeur via index 2->informations via strings
