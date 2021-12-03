@@ -2,10 +2,9 @@ import requests
 from bs4 import BeautifulSoup as bs
 
 url = "http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html"
+urlcategorie = "http://books.toscrape.com/catalogue/category/books/mystery_3/index.html"
 
-informations = []
-informationsVal = []
-tableauFinal = {}
+
 
 # Correction des listes
 # def deleteIndex(index):
@@ -20,6 +19,7 @@ tableauFinal = {}
 #     dw.writerow(tableauFinal)
 
 def etlPage(urlPage):
+    informations = []
     reponse = requests.get(urlPage)
     page = reponse.content
     soup = bs(page, "html.parser")
@@ -43,7 +43,7 @@ def etlValeurs(urlPageVal):
     reponse = requests.get(urlPageVal)
     page = reponse.content
     soup = bs(page, "html.parser")
-
+    informationsVal = []
     for x in soup.find_all("td", ):
         informationsVal.append(x.string)
 
@@ -63,7 +63,7 @@ def etlValeurs(urlPageVal):
     for liens in soup.find_all("a", href_=""):
         listeAriane.append(liens.string)
 
-    informationsVal.insert(0,url)
+    informationsVal.insert(0,urlPageVal)
     informationsVal.insert(2, (soup.h1.string))    # Ajout du titre aux listes en troisième position
     informationsVal.extend((descriptionVal, listeAriane[-1], reviewRatingVal))
 
@@ -103,17 +103,34 @@ def urlLivresCategorie(urlCategorie):
 
     listeCategorie = noDoublon(listeCategorieIntermediaire)
 
-    print(listeCategorie)
-
     def fullUrl(x):
         listeUrl = []
         for livres in x:
             listeUrl.append(livres.replace("../../../", root))
-            # listeUrl.append(root+livres)
-            # listeCategorie.replace("../../../",root)
         return listeUrl
 
-    print(fullUrl(listeCategorie))
+    return(fullUrl(listeCategorie))
 
+def categorieFinder():
+    url = "http://books.toscrape.com/index.html"
+    completURL = "http://books.toscrape.com/"
+    reponse = requests.get(url)
+    page = reponse.content
+    soup = bs(reponse.content, "html.parser")
+    #
+    # print(soup.prettify())
+
+    listeCategorie = []
+    boxLivres = soup.find('ul', class_='nav')
+
+    for a in boxLivres.find_all('a', href=True):
+        # print("Found the URL:", a['href'])
+        listeCategorie.append(completURL + a['href'])
+    del listeCategorie[0]
+    return(listeCategorie)
+
+
+# print(urlLivresCategorie(urlcategorie))
 # print(etlPage(url))
-# print(etlValeurs(url))
+print(etlValeurs(url))
+print(categorieFinder())
