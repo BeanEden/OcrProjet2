@@ -10,6 +10,8 @@ from etlsplit import etlPage
 from etlsplit import etlValeurs
 from etlsplit import urlLivresCategorie
 from etlsplit import categorieFinder
+from etlsplit import fpageIndex
+from etlsplit import
 
 
 url = "http://books.toscrape.com/catalogue/sharp-objects_997/index.html"

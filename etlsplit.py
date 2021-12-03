@@ -109,7 +109,14 @@ def urlLivresCategorie(urlCategorie):
             listeUrl.append(livres.replace("../../../", root))
         return listeUrl
 
+    # def fpageIndex():
+    #     boxPage = soup.find('li', class_='next')
+    #     for a in boxPage.find_all('a', href=True):
+    #         pageIndex = (a['href'])
+    #     print(pageIndex)
+
     return(fullUrl(listeCategorie))
+
 
 def categorieFinder():
     url = "http://books.toscrape.com/index.html"
@@ -129,8 +136,33 @@ def categorieFinder():
     del listeCategorie[0]
     return(listeCategorie)
 
+def fpageIndex(urlPage):
+    reponse = requests.get(urlcategorie)
+    page = reponse.content
+    soup = bs(page, "html.parser")
+    boxPage = soup.find('li', class_='next')
+    for a in boxPage.find_all('a', href=True):
+        pageIndex = (a['href'])
+    return(pageIndex)
+
+def bouclepagination(urlpagination):
+
+    listetotale = urlLivresCategorie(urlpagination)
+    fpageIndex(urlpagination)
+
+    while pageIndex is not None:
+        urlNewPage = urlpagination.replace("index.html", pageIndex)
+        listetotale.extend(urlLivresCategorie(urlpagination))
+        fpageIndex(urlNewPage)
+
+    return listetotale
+
+
 
 # print(urlLivresCategorie(urlcategorie))
 # print(etlPage(url))
 print(etlValeurs(url))
 print(categorieFinder())
+# print(bouclepagination(urlcategorie))
+# print(len(listetotale))
+# print(len(bouclepagination(urlcategorie)))
