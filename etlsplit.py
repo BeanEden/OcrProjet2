@@ -77,5 +77,43 @@ def etlValeurs(urlPageVal):
     return informationsVal
 
 
+def urlLivresCategorie(urlCategorie):
+    # root = url.replace("index.html","")
+    root = "http://books.toscrape.com/catalogue/"
+    reponse = requests.get(urlCategorie)
+    page = reponse.content
+    soup = bs(page, "html.parser")
+
+    # print(soup)
+
+    # html = '''<a href="some_url">next</a>
+    # <span class="class"><a href="another_url">later</a></span>'''
+    #
+    # soup = BeautifulSoup(html)
+
+    boxLivres = soup.find('ol', class_='row')
+    listeCategorieIntermediaire = []
+
+    for a in boxLivres.find_all('a', href=True):
+        # print("Found the URL:", a['href'])
+        listeCategorieIntermediaire.append(a['href'])
+
+    def noDoublon(x):
+        return list(dict.fromkeys(x))
+
+    listeCategorie = noDoublon(listeCategorieIntermediaire)
+
+    print(listeCategorie)
+
+    def fullUrl(x):
+        listeUrl = []
+        for livres in x:
+            listeUrl.append(livres.replace("../../../", root))
+            # listeUrl.append(root+livres)
+            # listeCategorie.replace("../../../",root)
+        return listeUrl
+
+    print(fullUrl(listeCategorie))
+
 # print(etlPage(url))
 # print(etlValeurs(url))
