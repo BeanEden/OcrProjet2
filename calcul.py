@@ -11,7 +11,7 @@ from etlsplit import etlValeurs
 from etlsplit import urlLivresCategorie
 from etlsplit import categorieFinder
 from etlsplit import fpageIndex
-from etlsplit import
+from etlsplit import bouclepagination
 
 
 url = "http://books.toscrape.com/catalogue/sharp-objects_997/index.html"

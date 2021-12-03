@@ -6,18 +6,6 @@ urlcategorie = "http://books.toscrape.com/catalogue/category/books/mystery_3/ind
 
 
 
-# Correction des listes
-# def deleteIndex(index):
-#     del informations[index]
-#     del informationsVal[index]
-
-# Intégration dans le fichier CSV
-# def écriture():
-#     with open('data.csv', 'w', newline="") as csv_file:
-#     dw = csv.DictWriter(csv_file, delimiter=',', fieldnames=informations)
-#     dw.writeheader()
-#     dw.writerow(tableauFinal)
-
 def etlPage(urlPage):
     informations = []
     reponse = requests.get(urlPage)
@@ -142,24 +130,6 @@ def urlLivresCategorie(urlCategorie):
 
     return(fullUrl(listeCategorie))
 
-
-def categorieFinder():
-    url = "http://books.toscrape.com/index.html"
-    completURL = "http://books.toscrape.com/"
-    reponse = requests.get(url)
-    page = reponse.content
-    soup = bs(reponse.content, "html.parser")
-    #
-    # print(soup.prettify())
-
-    listeCategorie = []
-    boxLivres = soup.find('ul', class_='nav')
-
-    for a in boxLivres.find_all('a', href=True):
-        # print("Found the URL:", a['href'])
-        listeCategorie.append(completURL + a['href'])
-    del listeCategorie[0]
-    return(listeCategorie)
 
 
 
