@@ -22,13 +22,9 @@ tableauFinal = {}
 def etlPage(urlPage):
     reponse = requests.get(urlPage)
     page = reponse.content
-
-    # transforme (parse) le HTML en objet BeautifulSoup
     soup = bs(page, "html.parser")
-#
+
 # def etlInformations(soup):
-    # Extration des informations présentes dans le tableau "Product information" de la page web
-    # Mise en forme liste
     for classes in soup.find_all("th", ):
         informations.append(classes.string)
 
@@ -40,14 +36,12 @@ def etlPage(urlPage):
     informations.remove("Product Type")
     informations.remove("Tax")
     informations.remove("Number of reviews")
-    print(informations)
-    return
 
-def etlValeurs(urlPage):
-    reponse = requests.get(urlPage)
+    return informations
+
+def etlValeurs(urlPageVal):
+    reponse = requests.get(urlPageVal)
     page = reponse.content
-
-    # transforme (parse) le HTML en objet BeautifulSoup
     soup = bs(page, "html.parser")
 
     for x in soup.find_all("td", ):
@@ -80,8 +74,8 @@ def etlValeurs(urlPage):
     del informationsVal[5]
     del informationsVal[6]
 
-    print(informationsVal)
-    return
+    return informationsVal
 
-print(etlPage(url))
-print(etlValeurs(url))
+
+# print(etlPage(url))
+# print(etlValeurs(url))
