@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup as bs
 import csv
 from extractFonctions import *
 
-url = "http://books.toscrape.com/catalogue/category/books/sequential-art_5/index.html"
+url = "http://books.toscrape.com/catalogue/category/books/mystery_3/index.html"
 # url2 = "http://books.toscrape.com/catalogue/category/books/travel_2/index.html"
 
 
