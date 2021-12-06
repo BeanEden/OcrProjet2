@@ -74,12 +74,6 @@ def urlLivresCategorie(urlCategorie):
         return listeUrl
 
     listetotale = (fullUrl(listeCategorie))
-    pageN = fpageIndex(urlCategorie)
-
-    while pageN is not None:
-        urlNewPage = urlCategorie.replace("index.html", pageN)
-        pageN = fpageIndex(urlNewPage)
-        listetotale.append(urlNewPage)
 
     return listetotale
 
@@ -97,14 +91,15 @@ def bouclePagination(urlpagination):
     return listetotale
 
 def lectureCategorie(urlCatFull):
-    urlPage1= urlLivresCategorie(urlCatFull)
-    urlPages=bouclePagination(urlCatFull)
+    urlPage1 = urlLivresCategorie(urlCatFull)
+    urlPages = bouclePagination(urlCatFull)
     completeList = urlPage1 + urlPages
     return completeList
 
-def etlPage(urlPage):
+def etlPage():
+    urlInfos = "http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html"
     informations = []
-    reponse = requests.get(urlPage)
+    reponse = requests.get(urlInfos)
     page = reponse.content
     soup = bs(page, "html.parser")
 
@@ -168,7 +163,9 @@ def etlValeurs(urlPageVal):
 
 
 
-# print(categorieFinder())
-# print(lectureCategorie(urlcategorie))
-# print(etlPage(url))
+# # print(categorieFinder())
+# print(len(lectureCategorie(urlcategorie)))
+# print(len(urlLivresCategorie(urlcategorie)))
+# print(len(bouclePagination(urlcategorie)))
+# # print(etlPage(url))
 # print(etlValeurs(url))
