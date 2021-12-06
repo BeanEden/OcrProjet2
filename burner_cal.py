@@ -144,16 +144,18 @@ def etlValeurs(urlPageVal):
     reviewRatingVal = "Tree"
     # Extraction de l'image aux listes
 
+
     for liens in soup.find_all("a", href_=""):
         listeAriane.append(liens.string)
 
     informationsVal.insert(0,urlPageVal)
     informationsVal.insert(2, (soup.h1.string))    # Ajout du titre aux listes en troisième position
     informationsVal.extend((descriptionVal, listeAriane[-1], reviewRatingVal))
-
+# Image
     for val in soup.find_all("img"):
-        # print(val.get('src'))
-        informationsVal.append(val.get("src"))
+        interm = val.get("src")
+        informationsVal.append(interm.replace("../../", "http://books.toscrape.com/"))
+
     del informationsVal[3]
     del informationsVal[5]
     del informationsVal[6]
