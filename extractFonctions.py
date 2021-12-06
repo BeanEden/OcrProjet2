@@ -22,7 +22,7 @@ def categorieFinder():
     completURL = "http://books.toscrape.com/"
     reponse = requests.get(url)
     page = reponse.content
-    soup = bs(reponse.content, "html.parser")
+    soup = bs(page.decode('utf-8'), "html.parser")
     #
     # print(soup.prettify())
 
@@ -67,7 +67,7 @@ def urlLivresCategorie(urlCategorie):
     root = "http://books.toscrape.com/catalogue/"
     reponse = requests.get(urlCategorie)
     page = reponse.content
-    soup = bs(page, "html.parser")
+    soup = bs(page.decode('utf-8'), "html.parser")
 
     boxLivres = soup.find('ol', class_='row')
     listeCategorieIntermediaire = []
@@ -138,7 +138,7 @@ def etlPage():
 def etlValeurs(urlPageVal):
     reponse = requests.get(urlPageVal)
     page = reponse.content
-    soup = bs(page, "html.parser")
+    soup = bs(page.decode('utf-8'), "html.parser")
     informationsVal = []
     for x in soup.find_all("td", ):
         informationsVal.append(x.string)

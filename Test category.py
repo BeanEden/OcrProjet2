@@ -3,12 +3,12 @@ from bs4 import BeautifulSoup as bs
 import csv
 from extractFonctions import *
 
-url = "http://books.toscrape.com/catalogue/category/books/mystery_3/index.html"
+url = "http://books.toscrape.com/catalogue/category/books/sequential-art_5/index.html"
 # url2 = "http://books.toscrape.com/catalogue/category/books/travel_2/index.html"
 
 
 #
-with open('dataCat.csv', 'w', newline="") as csv_file:
+with open('dataCat.csv', 'w', newline="", encoding="utf-8-sig") as csv_file:
     ligneXcel = csv.writer(csv_file, delimiter=',')
     ligneXcel.writerow(etlPage())
     for livres in bouclePagination(url):
