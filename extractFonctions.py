@@ -35,6 +35,18 @@ def categorieFinder():
     del listeCategorie[0]
     return(listeCategorie)
 
+#défini la liste de categorie
+def listeCategorie():
+    categorieListe = []
+    for titre in categorieFinder():
+        reponse = requests.get(titre)
+        page = reponse.content
+        soup = bs(page, "html.parser")
+        categorieListe.append(soup.h1.string)
+    return categorieListe
+
+categorieList = listeCategorie()
+
 def fpageIndex(urlPage):
     reponse = requests.get(urlPage)
     page = reponse.content
@@ -137,7 +149,15 @@ def etlValeurs(urlPageVal):
     descriptionVal = descriptionListe[3]
 
     # Extraction de la catégorie
+    categorieVal = ""
     listeAriane = []
+    boxCategory = soup.find('ul', class_="breadcrumb")
+    for liens in boxCategory("a", href_=""):
+        listeAriane.append(liens.string)
+    for lien in listeAriane:
+        if lien in categorieList:
+            categorieVal = lien
+
     # Fake star rating
     reviewRatingVal = ""
     ratings = ["One", "Two", "Three", "Four", "Five"]
