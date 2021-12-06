@@ -6,12 +6,7 @@
 import requests
 from bs4 import BeautifulSoup as bs
 import csv
-from etlsplit import etlPage
-from etlsplit import etlValeurs
-from etlsplit import urlLivresCategorie
-from etlsplit import categorieFinder
-from etlsplit import fpageIndex
-from etlsplit import bouclepagination
+from extractFonctions import *
 
 
 url = "http://books.toscrape.com/catalogue/sharp-objects_997/index.html"

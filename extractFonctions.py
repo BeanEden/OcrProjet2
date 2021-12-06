@@ -168,7 +168,7 @@ def etlValeurs(urlPageVal):
 
 
 
-print(categorieFinder())
-print(lectureCategorie(urlcategorie))
-print(etlPage(url))
-print(etlValeurs(url))
+# print(categorieFinder())
+# print(lectureCategorie(urlcategorie))
+# print(etlPage(url))
+# print(etlValeurs(url))
