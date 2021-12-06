@@ -141,8 +141,12 @@ def etlValeurs(urlPageVal):
     # Extraction de la catégorie
     listeAriane = []
     # Fake star rating
-    reviewRatingVal = "Tree"
-    # Extraction de l'image aux listes
+    reviewRatingVal = ""
+    ratings = ["One", "Two", "Three", "Four", "Five"]
+    boxRating = soup.find('div', class_="col-sm-6 product_main")
+    for a in ratings:
+        if boxRating.find('p', class_=a) is not None:
+            reviewRatingVal = a
 
 
     for liens in soup.find_all("a", href_=""):
