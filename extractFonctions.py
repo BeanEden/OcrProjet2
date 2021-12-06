@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup as bs
 
-url = "http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html"
+url = "http://books.toscrape.com/catalogue/1000-places-to-see-before-you-die_1/index.html"
 urlcategorie = "http://books.toscrape.com/catalogue/category/books/mystery_3/index.html"
 
 
@@ -36,16 +36,18 @@ def categorieFinder():
     return(listeCategorie)
 
 #défini la liste de categorie
-def listeCategorie():
-    categorieListe = []
-    for titre in categorieFinder():
-        reponse = requests.get(titre)
-        page = reponse.content
-        soup = bs(page, "html.parser")
-        categorieListe.append(soup.h1.string)
-    return categorieListe
+# def listeCategorie():
+#     categorieListe = []
+#     for titre in categorieFinder():
+#         reponse = requests.get(titre)
+#         page = reponse.content
+#         soup = bs(page, "html.parser")
+#         categorieListe.append(soup.h1.string)
+#     return categorieListe
+#
+# categorieList = listeCategorie()
 
-categorieList = listeCategorie()
+categorieList = ['Travel', 'Mystery', 'Historical Fiction', 'Sequential Art', 'Classics', 'Philosophy', 'Romance', 'Womens Fiction', 'Fiction', 'Childrens', 'Religion', 'Nonfiction', 'Music', 'Default', 'Science Fiction', 'Sports and Games', 'Add a comment', 'Fantasy', 'New Adult', 'Young Adult', 'Science', 'Poetry', 'Paranormal', 'Art', 'Psychology', 'Autobiography', 'Parenting', 'Adult Fiction', 'Humor', 'Horror', 'History', 'Food and Drink', 'Christian Fiction', 'Business', 'Biography', 'Thriller', 'Contemporary', 'Spirituality', 'Academic', 'Self Help', 'Historical', 'Christian', 'Suspense', 'Short Stories', 'Novels', 'Health', 'Politics', 'Cultural', 'Erotica', 'Crime']
 
 def fpageIndex(urlPage):
     reponse = requests.get(urlPage)
@@ -105,11 +107,11 @@ def bouclePagination(urlpagination):
 
     return listetotale
 
-def lectureCategorie(urlCatFull):
-    urlPage1 = urlLivresCategorie(urlCatFull)
-    urlPages = bouclePagination(urlCatFull)
-    completeList = urlPage1 + urlPages
-    return completeList
+# def lectureCategorie(urlCatFull):
+#     urlPage1 = urlLivresCategorie(urlCatFull)
+#     urlPages = bouclePagination(urlCatFull)
+#     completeList = urlPage1 + urlPages
+#     return completeList
 
 def etlPage():
     urlInfos = "http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html"
@@ -142,11 +144,13 @@ def etlValeurs(urlPageVal):
         informationsVal.append(x.string)
 
     # Extraction de la description
-    descriptionListe = []
-
-    for links in soup.find_all("p", ):
-        descriptionListe.append(links.string)
-    descriptionVal = descriptionListe[3]
+    descriptionString = ""
+    for links in soup.find_all("p", class_=None):
+        descriptionString = links.string
+    # if descriptionString.index(";") == True:
+    #     while descriptionString.index(";") == True:
+    #         descriptionString = descriptionString.replace(";", ",")
+    descriptionVal = [descriptionString]
 
     # Extraction de la catégorie
     categorieVal = ""
@@ -172,7 +176,7 @@ def etlValeurs(urlPageVal):
 
     informationsVal.insert(0,urlPageVal)
     informationsVal.insert(2, (soup.h1.string))    # Ajout du titre aux listes en troisième position
-    informationsVal.extend((descriptionVal, listeAriane[-1], reviewRatingVal))
+    informationsVal.extend((descriptionVal, categorieVal, reviewRatingVal))
 # Image
     boxImage = soup.find("div", class_="item active")
     for val in boxImage.find_all("img"):
@@ -191,5 +195,5 @@ def etlValeurs(urlPageVal):
 # print(len(lectureCategorie(urlcategorie)))
 # print(len(urlLivresCategorie(urlcategorie)))
 # print(len(bouclePagination(urlcategorie)))
-# # print(etlPage(url))
-# print(etlValeurs(url))
+print(etlPage())
+print(etlValeurs(url))
