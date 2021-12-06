@@ -154,7 +154,8 @@ def etlValeurs(urlPageVal):
     informationsVal.insert(2, (soup.h1.string))    # Ajout du titre aux listes en troisième position
     informationsVal.extend((descriptionVal, listeAriane[-1], reviewRatingVal))
 # Image
-    for val in soup.find_all("img"):
+    boxImage = soup.find("div", class_="item active")
+    for val in boxImage.find_all("img"):
         interm = val.get("src")
         informationsVal.append(interm.replace("../../", "http://books.toscrape.com/"))
 
