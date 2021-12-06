@@ -83,6 +83,9 @@ def bouclePagination(urlpagination):
     listetotale = urlLivresCategorie(urlpagination)
     pageN = fpageIndex(urlpagination)
 
+    if urlpagination.find("page-1") >= -1 :
+        urlpagination = urlpagination.replace("page-1.html","index.html")
+
     while pageN is not None:
         urlNewPage = urlpagination.replace("index.html", pageN)
         pageN = fpageIndex(urlNewPage)
