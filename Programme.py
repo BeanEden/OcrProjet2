@@ -1,37 +1,40 @@
-import time
+from functions import *
 
-import requests
-from bs4 import BeautifulSoup as bs
-import csv
-import shutil
-import os
-import genericpath
-from fonctions_extraction_categories import *
-from fonctions_extraction_livres import *
-from Construction import *
-from Ecriture import *
-from futures3.thread import ThreadPoolExecutor
-from futures3.process import ProcessPoolExecutor
-import concurrent.futures
-import urllib.request
+# test_liste_url_categories = liste_url_categories()
+# test_liste_noms_categories = liste_noms_categories()
 
+# print(len(test_liste_url_categories))
+# print(len(test_liste_noms_categories))
+#
+# url_livre = "http://books.toscrape.com/catalogue/orange-the-complete-collection-1-orange-the-complete-collection-1_914/index.html"
+# url_categorie = "http://books.toscrape.com/catalogue/category/books/sequential-art_5/index.html"
+#
+# soup = soup_function(url_livre)
+#
+# # # print(extraction_tableau(soup))
+# # # print(extraction_description(soup))
+# # # print(extraction_categorie(soup))
+# # print(extraction_rating(soup))
+# # # print(extraction_titre(soup))
+# # # print(extraction_url_image(soup))
+# # print(extraction_titre(soup))
+#
+# liste_livre = creation_un_livre(url_livre)
+# print(liste_livre)
+# print(construction_titre_image(liste_livre))
+#
+# liste_cat = liste_tous_livres_categorie(url_categorie)
+#
+# print(liste_cat)
+# print(thread_creation(liste_cat))
+
+start = int(time.time())
 cwd_data = chemin_acces()
 creation_dossier_data(cwd_data)
+urls_cat = liste_url_categories()
 
-for categorie in liste_url_categories():  # passage en revue de toute les catégories
-    creation_dossier_categorie(cwd_data, categorie)
-    # creation_csv(cwd_data, categorie)
-
-
-#
-# with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-#     # Start the load operations and mark each future with its URL
-#     future_to_url = {executor.submit(load_url, url, 60): url for url in URLS}
-#     for future in concurrent.futures.as_completed(future_to_url):
-#         url = future_to_url[future]
-#         try:
-#             data = future.result()
-#         except Exception as exc:
-#             print('%r generated an exception: %s' % (url, exc))
-#         else:
-#             print('%r page is %d bytes' % (url, len(data)))
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    tables = list(executor.map(lambda x: creation_dossier_categorie(cwd_data,x), urls_cat))
+end = int(time.time())
+time = end - start
+print(time)

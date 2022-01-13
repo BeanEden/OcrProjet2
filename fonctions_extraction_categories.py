@@ -98,9 +98,9 @@ def nom_categorie(url):
 
 
 url = "http://books.toscrape.com/catalogue/category/books/sequential-art_5/index.html"
-print(liste_url_categories())
+# print(liste_url_categories())
 # # print(liste_noms_categories())
-# # print(liste_url_livres_categorie(url))
-# print(liste_tous_livres_categorie(url))
-# print(len(liste_tous_livres_categorie(url)))
+# print(liste_url_livres_categorie(url))
+print(liste_tous_livres_categorie(url))
+print(len(liste_tous_livres_categorie(url)))
 # print(nom_categorie(url))
