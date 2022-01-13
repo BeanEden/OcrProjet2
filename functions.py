@@ -206,15 +206,16 @@ def creation_un_livre(url_page_livre):
     return liste_informations_livre
 
 
-def thread_creation(liste):
+def thread_creation_livre(liste):
     with concurrent.futures.ThreadPoolExecutor() as executor:
         tables = list(executor.map(lambda x : creation_un_livre(x), liste))
     return tables
 
 
-
-
-
+def thread_creation_url(liste):
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        tables = list(executor.map(lambda x : liste_tous_livres_categorie(x), liste))
+    return tables
 
 
 def chemin_acces():
@@ -234,26 +235,25 @@ def creation_dossier_categorie(cwd_data, categories):
     """Création d'un dossier par categorie si non existant"""
     nom_dossier_categorie = nom_categorie(categories)
     directory = cwd_data + nom_dossier_categorie + '/'
+    nom_csv = nom_dossier_categorie + '.csv'
+    url_de_la_categorie = liste_tous_livres_categorie(categories)
+
     if genericpath.isdir(directory) is not True:
         os.mkdir(directory)
-        print("Dossier " + nom_dossier_categorie + ' créé')
+        print("Dossier " + nom_dossier_categorie + " créé")
     else:
         print("Dossier " + nom_dossier_categorie + " déjà existant")
-#
-    # start = int(time.time())
-# def creation_csv(cwd_data, nom_dossier_categorie):
-    nom_csv = nom_dossier_categorie + '.csv'
-    directory = cwd_data + nom_dossier_categorie + '/'
+
     with open(os.path.join(directory + nom_csv), 'w', newline="", encoding="utf-8-sig") as csv_file:
         ligneXcel = csv.writer(csv_file, delimiter=',')
         ligneXcel.writerow(EN_TETE_COLONNES)
-        for livres in liste_tous_livres_categorie(categories):
-            informations = creation_un_livre(livres)
-            ligneXcel.writerow(creation_un_livre(livres))
-            telechargement_images(directory, informations)
-    # end = int(time.time())
-    print(nom_dossier_categorie + ' terminé')
-    # print(str(end - start) + ' secondes écoulées')
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            ecriture_livre = list(executor.map(lambda x: creation_un_livre(x), url_de_la_categorie))
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            tables = list(executor.map(lambda x: ligneXcel.writerow(x), ecriture_livre))
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            tables_images = list(executor.map(lambda x: telechargement_images(directory, x), ecriture_livre))
+    print(nom_dossier_categorie + " terminé")
 
 
 def telechargement_images(directory, liste):
