@@ -15,7 +15,7 @@ def liste_url_categories():
     box_livres = soup.find('ul', class_='nav')
 
     for a in box_livres.find_all('a', href=True):
-    url_categories.append(complet_url + a['href'])
+        url_categories.append(complet_url + a['href'])
     del url_categories[0]       # retrait de l'url "books" qui n'est pas une categorie à étudier
 
     return(url_categories)
@@ -30,6 +30,8 @@ def liste_noms_categories():
     for a in box_noms.find_all('a', href=True):
         titre = a.get_text()
         titre_categories.append(titre.strip('\n                            \n                        '))
+
+
     del titre_categories[0]
 
     return titre_categories

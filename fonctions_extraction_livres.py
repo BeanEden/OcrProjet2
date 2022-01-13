@@ -13,6 +13,7 @@ def extraction_tableau(soup):
     for x in soup.find_all("td", ):
         liste_informations.append(x.string)
 
+
     del liste_informations[-1]
     del liste_informations[4]
     del liste_informations[1]
