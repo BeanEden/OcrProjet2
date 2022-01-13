@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup as bs
+import concurrent.futures
 
 url_index = "http://books.toscrape.com/index.html"
 
@@ -166,3 +167,24 @@ def nom_categorie(url_categorie):
     soup = soup_function(url_categorie)
     nom_categorie = (soup.h1.string)
     return nom_categorie
+
+
+def creation_un_livre(url_page_livre):
+    soup = soup_function(url_page_livre)
+
+    liste_informations_livre = []
+    liste_informations_livre.append(url_page_livre)
+    liste_informations_livre.extend(extraction_tableau(soup))
+    liste_informations_livre.insert(2,extraction_titre(soup))
+    liste_informations_livre.extend(extraction_description(soup))
+    liste_informations_livre.append(extraction_categorie(soup))
+    liste_informations_livre.append(extraction_rating(soup))
+    liste_informations_livre.append(extraction_url_image(soup))
+
+    return liste_informations_livre
+
+
+def thread_creation(url_page_index_categorie):
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        tables = executor.map(lambda x : creation_un_livre(x), liste_tous_livres_categorie(url_page_index_categorie))
+    return tables
