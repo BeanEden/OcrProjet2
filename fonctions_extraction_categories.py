@@ -2,12 +2,12 @@
 
 from fonction_soup import soup_function
 
+url = "http://books.toscrape.com/index.html"
 
 def liste_url_categories():
     """Création de la liste des url de catégorie
     Cette fonction ne requiert aucun argument et génère la liste suivante [urlcategorie1, urlcategorie2,...]
     Elle se base sur la page d'accueil du site, extrait les url et les corrige (ajoute http://books.toscrape.com au début des url)"""
-    url = "http://books.toscrape.com/index.html"
     complet_url = "http://books.toscrape.com/"
     soup = soup_function(url)
 
@@ -15,14 +15,13 @@ def liste_url_categories():
     box_livres = soup.find('ul', class_='nav')
 
     for a in box_livres.find_all('a', href=True):
-        url_categories.append(complet_url + a['href'])
+    url_categories.append(complet_url + a['href'])
     del url_categories[0]       # retrait de l'url "books" qui n'est pas une categorie à étudier
 
     return(url_categories)
 
 
 def liste_noms_categories():
-    url = "http://books.toscrape.com/index.html"
     soup = soup_function(url)
 
     titre_categories = []
@@ -96,10 +95,10 @@ def nom_categorie(url):
     return nom_categorie
 
 
-# url = "http://books.toscrape.com/catalogue/category/books/sequential-art_5/index.html"
-# # print(liste_url_categories())
+url = "http://books.toscrape.com/catalogue/category/books/sequential-art_5/index.html"
+print(liste_url_categories())
 # # print(liste_noms_categories())
 # # print(liste_url_livres_categorie(url))
-# # print(liste_tous_livres_categorie(url))
-# # print(len(liste_tous_livres_categorie(url)))
+# print(liste_tous_livres_categorie(url))
+# print(len(liste_tous_livres_categorie(url)))
 # print(nom_categorie(url))

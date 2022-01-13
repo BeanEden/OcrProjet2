@@ -35,7 +35,7 @@ def creation_dossier_categorie(cwd_data, categories):
         print("Dossier " + nom_dossier_categorie + " déjà existant")
 #
     start = int(time.time())
-# def creation_csv(cwd_data, nom_dossier_categorie):
+def creation_csv(cwd_data, nom_dossier_categorie):
     nom_csv = nom_dossier_categorie + '.csv'
     directory = cwd_data + nom_dossier_categorie + '/'
     with open(os.path.join(directory + nom_csv), 'w', newline="", encoding="utf-8-sig") as csv_file:

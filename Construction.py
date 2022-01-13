@@ -35,8 +35,8 @@ def creation_un_livre(url_page_livre):
 url = "http://books.toscrape.com/catalogue/its-only-the-himalayas_981/index.html"
 print(EN_TETE_COLONNES)
 print(creation_un_livre(url))
-#
-# url_cat = "http://books.toscrape.com/catalogue/category/books/sequential-art_5/index.html"
-#
+
+url_cat = "http://books.toscrape.com/catalogue/category/books/sequential-art_5/index.html"
+
 # for livre in liste_tous_livres_categorie(url_cat):
 #     print(creation_un_livre(livre))
