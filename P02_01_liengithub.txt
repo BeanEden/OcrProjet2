@@ -1,2 +1,0 @@
-Lien du repository git hub :
-https://github.com/BeanEden/OcrProjet2.git
