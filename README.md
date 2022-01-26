@@ -25,23 +25,28 @@ L'ensemble de ces données est intégré dans un nouveau dossier "data".
 Chaque catégorie dispose ensuite de son propre dossier (exemple : le dossier ../data/Travel contient le Csv et les images de la catégorie Travel).
 
 
+
+
 ## Utilisation :
 
 ### 1 - Créez un environement virtuel dans le dossier de votre choix et activez le :
-* Commande terminal : *mkdir projects*
-* Commande terminal : *cd projects*
-* Commande terminal : *python -m venv env*
-* Commande terminal : *env/Scripts/activate.bat* (sous Windows)
+#### Commande terminal : `mkdir projects`
+#### Commande terminal : `cd projects`
+#### Commande terminal : `python -m venv env`
+#### Commande terminal : `env/Scripts/activate.bat` (sous Windows)
+
 
 
 ### 2 - Importez les packages :
-#### Commande terminal : <strong>pip install -r requirements.txt</strong>
+#### Commande terminal : `pip install -r requirements.txt`
 Importez dans votre environnement virtuel les packages nécessaires au script (requests, bs4, csv, future3), tels que présents dans le fichier requirements.txt
 Il est possible d'utiliser la ligne de commande "pip install -r requirements.txt",
 ou d'installer les packages un par un : "pip install requests"
 
 ### 3 - Lancez l'application : 
-* Commande terminal : *python execution.py*
+* Commande terminal : `python execution.py`
+
+
 
 
 ## Déroulement de l'application :
@@ -65,14 +70,20 @@ Le fichier "functions.py" contient les fonctions d'extractions du contenu.
 L'application fonctionne avec le threading
 Le temps moyen d'execution est d'environ 60 secondes.
 
+====================
+
 ## Résultat :
 * Un dossier "data" contenant :
   * 50 dossiers de catégorie contenant chacun :
     * 1 fichiers csv
     * l'ensemble des images de la catégorie 
 
+
+
 ## En savoir plus :
 Les fonctions de "functions.py" sont documentées via docstrings avec leurs utilisations, arguments et retours.
+
+
 
 ## Contenu du repository git hub: 
 * fichier execution.py
