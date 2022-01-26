@@ -28,9 +28,9 @@ Chaque catégorie dispose ensuite de son propre dossier (exemple : le dossier ..
 ## Utilisation :
 
 ### 1 - Créez un environement virtuel dans le dossier de votre choix :
-#### Commande terminal : mkdir projects
-#### Commande terminal : cd projects
-#### Commande terminal : python -m venv env
+#### *Commande terminal : mkdir projects
+#### *Commande terminal : cd projects
+#### *Commande terminal : python -m venv env
 
 
 ### 2 - Importez les packages :
