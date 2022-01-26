@@ -38,13 +38,13 @@ Chaque catégorie dispose ensuite de son propre dossier (exemple : le dossier ..
 
 
 ### 2 - Importez les packages :
-#### Commande terminal : `pip install -r requirements.txt`
+* Commande terminal : `pip install -r requirements.txt`
 Importez dans votre environnement virtuel les packages nécessaires au script (requests, bs4, csv, future3), tels que présents dans le fichier requirements.txt
 Il est possible d'utiliser la ligne de commande "pip install -r requirements.txt",
 ou d'installer les packages un par un : "pip install requests"
 
 ### 3 - Lancez l'application : 
-#### Commande terminal : `python execution.py`
+* Commande terminal : `python execution.py`
 
 
 
