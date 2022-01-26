@@ -55,10 +55,10 @@ Le fichier "functions.py" contient les fonctions d'extractions du contenu.
   * Extraction dans chaque page catégorie de l'ensemble des urls de livres
     * Extraction dans chaque page de livre de l'ensemble des informations souhaitées 
     * Mise en forme des informations en format liste
- * Création d'un dossier par catégorie
+* Création d'un dossier par catégorie
   * Création d'un fichier CSV par catégorie
-   * Ecriture des en_têtes
-   * Inscription dans le CSV des informations de chaque livre
+    * Ecriture des en_têtes
+    * Inscription dans le CSV des informations de chaque livre
   * Téléchargement des images dans le dossier
 
 L'application fonctionne avec le threading
