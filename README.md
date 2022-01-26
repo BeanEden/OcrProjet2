@@ -25,6 +25,7 @@ Chaque catégorie dispose ensuite de son propre dossier (exemple : le dossier ..
 
 
 ## Utilisation :
+
 ### 1 - Créez un environement virtuel dans le dossier de votre choix :
 $ mkdir projects
 $ cd projects
@@ -40,9 +41,11 @@ ou d'installer les packages un par un : "pip install requests"
 ### 3 - Lancez l'application : 
 #### Commande terminal : python execution.py"
 
+
 ## Déroulement de l'application :
 Le fichier "functions.py" contient les fonctions d'extractions du contenu.
 "execution.py" appelle les fonctions de "fonctions.py".
+
 
 ### Déroulement
 * Extraction du chemin d'accès du répertoire
@@ -58,10 +61,11 @@ L'application fonctionne avec le threading
 
 
 
+
 ## En savoir plus :
 Les fonctions de "P02_01_01_functions.py" sont documentées via docstrings avec leurs utilisations, arguments et retours.
 
-## Contenu principaux : 
+## Contenu du repository git hub: 
 * fichier execution.py
 * fichier functions.py
 * fichier liengithub
