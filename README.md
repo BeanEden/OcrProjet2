@@ -1,4 +1,4 @@
-# Utilisez les bases de Python pour l'analyse de marché
+# Projet 2 : Utilisez les bases de Python pour l'analyse de marché
 *par Jean-Corentin Loirat
 le 07/12/2021 (mis à jour le 26/01/2022)*
 
