@@ -28,10 +28,10 @@ Chaque catégorie dispose ensuite de son propre dossier (exemple : le dossier ..
 ## Utilisation :
 
 ### 1 - Créez un environement virtuel dans le dossier de votre choix et activez le :
-#### Commande terminal : mkdir projects
-#### Commande terminal : cd projects
-#### Commande terminal : python -m venv env
-#### Commande terminal : env/Scripts/activate.bat (sous Windows)
+*Commande terminal : mkdir projects
+*Commande terminal : cd projects
+*Commande terminal : python -m venv env
+*Commande terminal : env/Scripts/activate.bat (sous Windows)
 
 
 ### 2 - Importez les packages :
@@ -65,7 +65,7 @@ Le fichier "functions.py" contient les fonctions d'extractions du contenu.
 L'application fonctionne avec le threading
 
 
-
+## Déroulement de l'application :
 
 ## En savoir plus :
 Les fonctions de "functions.py" sont documentées via docstrings avec leurs utilisations, arguments et retours.
