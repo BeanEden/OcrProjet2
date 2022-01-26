@@ -25,7 +25,7 @@ L'ensemble de ces données est intégré dans un nouveau dossier "data".
 Chaque catégorie dispose ensuite de son propre dossier (exemple : le dossier ../data/Travel contient le Csv et les images de la catégorie Travel).
 
 
-
+#  
 
 ## Utilisation :
 
@@ -47,7 +47,7 @@ ou d'installer les packages un par un : "pip install requests"
 #### Commande terminal : `python execution.py`
 
 
-
+#  
 
 ## Déroulement de l'application :
 Le fichier "functions.py" contient les fonctions d'extractions du contenu.
@@ -70,7 +70,7 @@ Le fichier "functions.py" contient les fonctions d'extractions du contenu.
 L'application fonctionne avec le threading
 Le temps moyen d'execution est d'environ 60 secondes.
 
-====================
+#  
 
 ## Résultat :
 * Un dossier "data" contenant :
@@ -78,12 +78,12 @@ Le temps moyen d'execution est d'environ 60 secondes.
     * 1 fichiers csv
     * l'ensemble des images de la catégorie 
 
-
+#  
 
 ## En savoir plus :
 Les fonctions de "functions.py" sont documentées via docstrings avec leurs utilisations, arguments et retours.
 
-
+#  
 
 ## Contenu du repository git hub: 
 * fichier execution.py
