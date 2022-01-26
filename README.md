@@ -1,6 +1,7 @@
 # Utilisez les bases de Python pour l'analyse de marché
 *par Jean-Corentin Loirat
-le 07/12/2021 (mis à jour le 26/01/2022)*\n
+le 07/12/2021 (mis à jour le 26/01/2022)*
+
 Lien du repository git hub : https://github.com/BeanEden/OcrProjet2.git
 
 ## Description de l'application :
