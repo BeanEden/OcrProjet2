@@ -35,7 +35,7 @@ Chaque catégorie dispose ensuite de son propre dossier (exemple : le dossier ..
 
 
 ### 2 - Importez les packages :
-* Commande terminal : *pip install -r requirements.txt*
+#### Commande terminal : <strong>pip install -r requirements.txt</strong>
 Importez dans votre environnement virtuel les packages nécessaires au script (requests, bs4, csv, future3), tels que présents dans le fichier requirements.txt
 Il est possible d'utiliser la ligne de commande "pip install -r requirements.txt",
 ou d'installer les packages un par un : "pip install requests"
@@ -63,9 +63,13 @@ Le fichier "functions.py" contient les fonctions d'extractions du contenu.
   * Téléchargement des images dans le dossier
 
 L'application fonctionne avec le threading
+Le temps moyen d'execution est d'environ 60 secondes.
 
-
-## Déroulement de l'application :
+## Résultat :
+* Un dossier "data" contenant :
+  * 50 dossiers de catégorie contenant chacun :
+    * 1 fichiers csv
+    * l'ensemble des images de la catégorie 
 
 ## En savoir plus :
 Les fonctions de "functions.py" sont documentées via docstrings avec leurs utilisations, arguments et retours.
