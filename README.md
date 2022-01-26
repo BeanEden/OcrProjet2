@@ -28,10 +28,10 @@ Chaque catégorie dispose ensuite de son propre dossier (exemple : le dossier ..
 ## Utilisation :
 
 ### 1 - Créez un environement virtuel dans le dossier de votre choix :
-$ mkdir projects
-$ cd projects
-$ ls
-~/project
+#### Commande terminal : mkdir projects
+#### Commande terminal : cd projects
+#### Commande terminal : python -m venv env
+
 
 ### 2 - Importez les packages :
 #### Commande terminal : pip install -r requirements.txt
@@ -67,7 +67,7 @@ L'application fonctionne avec le threading
 
 
 ## En savoir plus :
-Les fonctions de "P02_01_01_functions.py" sont documentées via docstrings avec leurs utilisations, arguments et retours.
+Les fonctions de "functions.py" sont documentées via docstrings avec leurs utilisations, arguments et retours.
 
 ## Contenu du repository git hub: 
 * fichier execution.py
