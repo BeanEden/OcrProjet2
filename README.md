@@ -30,10 +30,10 @@ Chaque catégorie dispose ensuite de son propre dossier (exemple : le dossier ..
 ## Utilisation :
 
 ### 1 - Créez un environement virtuel dans le dossier de votre choix et activez le :
-#### Commande terminal : `mkdir projects`
-#### Commande terminal : `cd projects`
-#### Commande terminal : `python -m venv env`
-#### Commande terminal : `env/Scripts/activate.bat` (sous Windows)
+* Commande terminal : `mkdir projects`
+* Commande terminal : `cd projects`
+* Commande terminal : `python -m venv env`
+* Commande terminal : `env/Scripts/activate.bat` (sous Windows)
 
 
 
@@ -44,7 +44,7 @@ Il est possible d'utiliser la ligne de commande "pip install -r requirements.txt
 ou d'installer les packages un par un : "pip install requests"
 
 ### 3 - Lancez l'application : 
-* Commande terminal : `python execution.py`
+#### Commande terminal : `python execution.py`
 
 
 
