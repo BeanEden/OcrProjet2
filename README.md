@@ -50,14 +50,17 @@ Le fichier "functions.py" contient les fonctions d'extractions du contenu.
 
 ### Déroulement
 * Extraction du chemin d'accès du répertoire
-* Extraction des listes d'url de chque catégories (depuis l'index du site)
-  * Extraction sur chaque page catégorie de l'ensemble des urls de livres
-    * Extraction pour chaque page de livre de l'ensemble des informations souhaitées 
-  * Création d'un dossier par catégorie
-    * Création d'un fichier CSV par catégorie
-    * Ecriture des en_têtes
-    * Inscription dans le CSV des informations ed chaque livre
-    * Téléchargement des images dans le dossier
+* Création d'un dossier "data"
+* Extraction des url de chaque catégories (depuis l'index du site)
+  * Extraction dans chaque page catégorie de l'ensemble des urls de livres
+    * Extraction dans chaque page de livre de l'ensemble des informations souhaitées 
+    * Mise en forme des informations en format liste
+ * Création d'un dossier par catégorie
+  * Création d'un fichier CSV par catégorie
+   * Ecriture des en_têtes
+   * Inscription dans le CSV des informations de chaque livre
+  * Téléchargement des images dans le dossier
+
 L'application fonctionne avec le threading
 
 
