@@ -41,9 +41,11 @@ ou d'installer les packages un par un : "pip install requests"
 ### 3 - Lancez l'application : 
 #### Commande terminal : python execution.py"
 
-## Déroulement de l'appliaction :
+## Déroulement de l'application :
 Le fichier "functions.py" contient les fonctions d'extractions du contenu.
-"execution.py" génère les dossiers des catégories et appelle les fonctions de "fonctions.py" afin d'écrire les informations souhaitées dans les CSV et télécharger les images.
+"execution.py" appelle les fonctions de "fonctions.py".
+
+### Déroulement
 * Extraction du chemin d'accès du répertoire
 * Extraction des listes d'url de chque catégories (depuis l'index du site)
   * Extraction sur chaque page catégorie de l'ensemble des urls de livres
