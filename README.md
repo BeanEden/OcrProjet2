@@ -1,11 +1,10 @@
 # Utilisez les bases de Python pour l'analyse de marché
 *par Jean-Corentin Loirat
 le 07/12/2021 (mis à jour le 26/01/2022)*
-Lien du repository git hub :
-<a name=https://github.com/BeanEden/OcrProjet2.git></a>
+Lien du repository git hub : (https://github.com/BeanEden/OcrProjet2.git)
 
 ## Description de l'application :
-Il s'agit d'un script permettant d'extraire du site : <a href=http://books.toscrape.com/index.html></a> des informations et images concernant des livres.
+Il s'agit d'un script permettant d'extraire du site : (http://books.toscrape.com/index.html) des informations et images de livres.
 Le script récupère, pour chaque livre présent sur le site, les informations suivantes :
  * product_page_url
  * universal_ product_code (upc)
