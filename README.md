@@ -17,6 +17,7 @@ Le script récupère, pour chaque livre présent sur le site, les informations s
  * category
  * review_rating
  * image_url 
+
 Ces informations sont extraites catégorie par catégorie (exemple : Travel, Mystery...) et écrites dans un fichier csv par catégorie.
 Les images des livres sont également récupérées.
 
